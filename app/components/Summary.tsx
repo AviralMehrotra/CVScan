@@ -13,10 +13,10 @@ const Category = ({ title, score }: { title: string; score: number }) => {
     <div className="resume-summary">
       <div className="category">
         <div className="flex flex-row gap-2 items-center justify-center">
-          <p className="text-2xl">{title}</p>
+          <p className="text-xl">{title}</p>
           <ScoreBadge score={score} />
         </div>
-        <p className="text-2xl">
+        <p className="text-xl">
           <span className={textColor}>{score}</span>/100
         </p>
       </div>
@@ -32,7 +32,8 @@ const Summary = ({ feedback }: { feedback: Feedback }) => {
         <div className="flex flex-col gap-2">
           <h2 className="text-2xl font-bold">Your Resume Score</h2>
           <p className="text-sm text-gray-500">
-            The clanker clanked your resume based on the reasons listed below
+            The feedback below is based on your resume. Keep in mind that the
+            feedback is not a guarantee of your interview success.
           </p>
         </div>
       </div>

@@ -49,7 +49,7 @@ export default function Home() {
           {!loadingResumes && resumes?.length === 0 ? (
             <h2>No resumes found. Upload your first resume to get feedback.</h2>
           ) : (
-            <h2>Review your Resume with our AI clanker!</h2>
+            <h2>Review your Resume with our AI!</h2>
           )}
         </div>
         {loadingResumes && (
