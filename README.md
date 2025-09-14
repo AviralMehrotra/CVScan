@@ -12,7 +12,7 @@ Built with **React Router** and powered by **Puter’s cloud services**.
 
 ## 🎥 Preview  
 
-> ![CVScan Demo](https://cv-scan-eta.vercel.app/)
+[🚀 Live Demo – Try CVScan](https://cv-scan-eta.vercel.app/)
 
 ## ✨ Features  
 
