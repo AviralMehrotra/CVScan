@@ -1,4 +1,4 @@
-# 📄 CVScan – AI-Powered Resume Analyzer  
+# <img src="public/favicon.ico" alt="CVScan Logo" width="28" /> CVScan – AI-Powered Resume Analyzer  
 
 [![Build](https://img.shields.io/badge/build-passing-brightgreen?style=flat-square)](#)
 [![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
