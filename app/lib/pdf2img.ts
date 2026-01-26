@@ -4,6 +4,11 @@ export interface PdfConversionResult {
   error?: string;
 }
 
+export interface PdfTextExtractionResult {
+  text: string;
+  error?: string;
+}
+
 let pdfjsLib: any = null;
 let isLoading = false;
 let loadPromise: Promise<any> | null = null;
@@ -80,6 +85,42 @@ export async function convertPdfToImage(
       imageUrl: "",
       file: null,
       error: `Failed to convert PDF: ${err}`,
+    };
+  }
+}
+
+export async function extractTextFromPdf(
+  file: File
+): Promise<PdfTextExtractionResult> {
+  try {
+    const lib = await loadPdfJs();
+    const arrayBuffer = await file.arrayBuffer();
+    const pdf = await lib.getDocument({ data: arrayBuffer }).promise;
+    
+    let fullText = "";
+    
+    // Extract text from all pages
+    for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+      const page = await pdf.getPage(pageNum);
+      const textContent = await page.getTextContent();
+      
+      const pageText = textContent.items
+        .map((item: any) => item.str)
+        .join(" ")
+        .trim();
+      
+      if (pageText) {
+        fullText += pageText + "\n\n";
+      }
+    }
+    
+    return {
+      text: fullText.trim(),
+    };
+  } catch (err) {
+    return {
+      text: "",
+      error: `Failed to extract text from PDF: ${err}`,
     };
   }
 }

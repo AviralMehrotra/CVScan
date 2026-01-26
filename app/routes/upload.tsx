@@ -3,7 +3,7 @@ import React, { useState, type FormEvent } from "react";
 import { useNavigate } from "react-router";
 import FileUploader from "~/components/FileUploader";
 import Navbar from "~/components/Navbar";
-import { convertPdfToImage } from "~/lib/pdf2img";
+import { convertPdfToImage, extractTextFromPdf } from "~/lib/pdf2img";
 import { usePuterStore } from "~/lib/puter";
 import { generateUUID } from "~/lib/utls";
 
@@ -40,6 +40,11 @@ const upload = () => {
     if (!imageFile.file)
       return setStatusText("Error: Failed to convert PDF to Image");
 
+    setStatusText("Extracting text from PDF...");
+    const textExtraction = await extractTextFromPdf(file);
+    if (textExtraction.error || !textExtraction.text.trim())
+      return setStatusText("Error: Failed to extract text from PDF");
+
     setStatusText("Uploading converted image...");
     const uploadedImage = await fs.upload([imageFile.file]);
     if (!uploadedImage) return setStatusText("Error: Failed to upload image");
@@ -59,10 +64,12 @@ const upload = () => {
 
     setStatusText("Analyzing Resume...");
 
-    const feedback = await ai.feedback(
-      uploadedFile.path,
-      prepareInstructions({ jobTitle, jobDescription, AIResponseFormat })
-    );
+    const prompt = `${prepareInstructions({ jobTitle, jobDescription, AIResponseFormat })}
+
+Resume Content:
+${textExtraction.text}`;
+
+    const feedback = await ai.chat(prompt);
     if (!feedback) return setStatusText("Error: Failed to analyze resume");
 
     const feedbackText =
