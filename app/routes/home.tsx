@@ -15,10 +15,8 @@ export function meta({}: Route.MetaArgs) {
 
 export default function Home() {
   return (
-    <main className="p-0 pt-24 bg-soft-neutral hero-gradient min-h-screen">
-      <div className="fixed top-0 left-0 right-0 z-50 pt-6 px-4">
-        <Navbar />
-      </div>
+    <main className="p-0 pt-32 bg-soft-neutral hero-gradient min-h-screen">
+      <Navbar />
       <LandingPage />
     </main>
   );

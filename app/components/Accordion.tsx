@@ -9,7 +9,7 @@ interface AccordionContextType {
 }
 
 const AccordionContext = createContext<AccordionContextType | undefined>(
-  undefined
+  undefined,
 );
 
 const useAccordion = () => {
@@ -34,7 +34,7 @@ export const Accordion: React.FC<AccordionProps> = ({
   className = "",
 }) => {
   const [activeItems, setActiveItems] = useState<string[]>(
-    defaultOpen ? [defaultOpen] : []
+    defaultOpen ? [defaultOpen] : [],
   );
 
   const toggleItem = (id: string) => {
@@ -71,11 +71,7 @@ export const AccordionItem: React.FC<AccordionItemProps> = ({
   children,
   className = "",
 }) => {
-  return (
-    <div className={`overflow-hidden border-b border-gray-200 ${className}`}>
-      {children}
-    </div>
-  );
+  return <div className={`overflow-hidden ${className}`}>{children}</div>;
 };
 
 interface AccordionHeaderProps {

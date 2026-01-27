@@ -53,7 +53,7 @@ export default function Dashboard() {
       : 0;
 
   return (
-    <main className="p-0 pt-32 md:pt-48 bg-soft-neutral hero-gradient min-h-screen relative overflow-hidden">
+    <main className="p-0 pt-40 md:pt-56 bg-soft-neutral hero-gradient min-h-screen relative overflow-hidden">
       {/* Decorative Background Elements */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10 pointer-events-none">
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-orange-100/20 blur-[120px] rounded-full animate-float"></div>
@@ -63,16 +63,14 @@ export default function Dashboard() {
         ></div>
       </div>
 
-      <div className="fixed top-0 left-0 right-0 z-50 pt-6 px-4">
-        <Navbar />
-      </div>
+      <Navbar />
 
       <section className="mt-28 px-6 lg:max-w-6xl mx-auto w-full !py-0">
         {/* Dashboard Header */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-10 mb-20 animate-fade-in">
           <div className="flex-grow">
             <div className="flex items-center gap-5 mb-6">
-              <div className="w-16 h-16 rounded-[1.5rem] bg-orange-500 flex items-center justify-center text-white text-3xl font-black shadow-2xl shadow-orange-200">
+              <div className="w-16 h-16 shrink-0 rounded-[1.5rem] bg-orange-500 flex items-center justify-center text-white text-3xl font-black shadow-2xl shadow-orange-200">
                 {auth.user?.username?.[0].toUpperCase() || "U"}
               </div>
               <div>

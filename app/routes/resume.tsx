@@ -52,109 +52,151 @@ const Resume = () => {
   }, [id]);
 
   return (
-    <main className="!pt-0">
-      <nav className="resume-nav">
-        <Link to="/" className="back-button">
-          <img src="/icons/back.svg" alt="logo" className="w-2.5 h-2.5" />
-          <span className="text-gray-800 text-sm font-semibold">
-            Back to Homepage
-          </span>
-        </Link>
-      </nav>
-      <div className="flex flex-row w-[95%] max-lg:flex-col-reverse">
-        <section className="feedback-section  bg-[url('/images/bg-small.svg') bg-cover h-[100vh] sticky top-0 items-center justify-center">
-          {imageUrl && resumeUrl && (
-            <div className="animate-in fade-in duration-1000 gradient-border max-sm:m-0 h-[90%] max-w-xl:h-fit w-fit">
-              <a href={resumeUrl} target="_blank" rel="noopener noreferrer">
-                <img
-                  src={imageUrl}
-                  className="w-full h-full object-contain rounded-2xl"
-                  title="resume"
-                />
-              </a>
+    <main className="p-0 pt-32 md:pt-40 bg-soft-neutral hero-gradient min-h-screen relative overflow-hidden">
+      {/* Decorative Background Elements */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10 pointer-events-none">
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-orange-100/20 blur-[120px] rounded-full animate-float"></div>
+        <div
+          className="absolute bottom-[10%] right-[-5%] w-[30%] h-[30%] bg-indigo-100/20 blur-[100px] rounded-full animate-float"
+          style={{ animationDelay: "-2s" }}
+        ></div>
+      </div>
+
+      <div className="fixed top-0 left-0 right-0 z-50 pt-6 px-4">
+        <nav className="navbar !max-w-[1400px]">
+          <Link to="/dashboard" className="flex items-center gap-2 group">
+            <div className="w-8 h-8 bg-orange-500 rounded-lg flex items-center justify-center text-white font-bold text-xl group-hover:scale-110 transition-transform">
+              C
             </div>
-          )}
-        </section>
-        <section className="feedback-section">
-          {feedback && (
-            <h2 className="text-2xl lg:text-3xl !text-black font-bold">
-              Resume Review
-            </h2>
-          )}
-          {feedback ? (
-            <Suspense
-              fallback={
-                <div className="flex items-center justify-center p-8">
-                  <div className="custom-loader"></div>
-                </div>
-              }
+            <p className="text-xl sm:text-2xl font-bold tracking-tight text-gray-900">
+              CV<span className="text-orange-500">Scan</span>
+            </p>
+          </Link>
+          <div className="flex items-center gap-4">
+            <Link
+              to="/dashboard"
+              className="flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-full font-semibold transition-all text-sm"
             >
-              <div className="flex flex-col gap-4 lg:gap-6 animate-in fade-in duration-1000">
-                <Summary feedback={feedback} />
-                <ATS
-                  score={feedback.ATS.score || 0}
-                  suggestions={feedback.ATS.tips || []}
-                />
-                <Details feedback={feedback} />
-              </div>
-            </Suspense>
-          ) : (
-            <div className="flex flex-col items-center justify-center min-h-[50vh] gap-4 lg:gap-6">
-              <div className="relative">
-                <div className="w-32 h-32 lg:w-40 lg:h-40 bg-gradient-to-br from-orange-100 to-orange-200 rounded-2xl flex items-center justify-center shadow-lg">
-                  <img
-                    src="/images/resume-scan-2.gif"
-                    className="w-20 h-20 lg:w-24 lg:h-24 object-contain"
-                    alt="loading"
-                  />
-                </div>
-                <div className="absolute -top-2 -right-2 w-6 h-6 lg:w-8 lg:h-8 bg-orange-500 rounded-full flex items-center justify-center">
-                  <svg
-                    className="w-3 h-3 lg:w-4 lg:h-4 text-white animate-spin"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                  >
-                    <circle
-                      className="opacity-25"
-                      cx="12"
-                      cy="12"
-                      r="10"
-                      stroke="currentColor"
-                      strokeWidth="4"
-                    ></circle>
-                    <path
-                      className="opacity-75"
-                      fill="currentColor"
-                      d="m4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                    ></path>
-                  </svg>
-                </div>
+              <img
+                src="/icons/back.svg"
+                alt="back"
+                className="w-3 h-3 rotate-180"
+              />
+              <span>Back to Dashboard</span>
+            </Link>
+          </div>
+        </nav>
+      </div>
+
+      <div className="max-w-[1600px] mx-auto px-6 lg:px-10">
+        <div className="mt-28 flex flex-col xl:flex-row gap-10">
+          {/* Left Side: Resume Preview */}
+          <section className="xl:w-[40%]">
+            <div className="xl:sticky xl:top-40">
+              <div className="flex items-center gap-3 mb-6 animate-fade-in">
+                <div className="w-2 h-8 bg-orange-500 rounded-full"></div>
+                <h2 className="text-2xl font-bold text-gray-900 uppercase tracking-tight">
+                  Resume Preview
+                </h2>
               </div>
 
-              <div className="text-center space-y-2 lg:space-y-3">
-                <h3 className="text-xl lg:text-2xl font-bold text-gray-800">
+              {imageUrl && resumeUrl ? (
+                <div className="animate-fade-in gradient-border bg-white/50 backdrop-blur-sm shadow-2xl rounded-2xl overflow-hidden group relative">
+                  <a
+                    href={resumeUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block relative"
+                  >
+                    <img
+                      src={imageUrl}
+                      className="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-[1.02] rounded-2xl"
+                      alt="Resume Preview"
+                    />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100 rounded-2xl duration-700 ease-in-out">
+                      <div className="px-6 py-3 bg-white/90 backdrop-blur rounded-full shadow-xl font-bold text-gray-900 flex items-center gap-2">
+                        <span>View Full PDF</span>
+                        <svg
+                          className="w-4 h-4"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              ) : (
+                <div className="w-full aspect-[1/1.4] bg-white/50 backdrop-blur-sm border-2 border-dashed border-gray-200 rounded-2xl flex flex-col items-center justify-center gap-4">
+                  <div className="w-16 h-16 bg-gray-100 rounded-2xl animate-pulse"></div>
+                  <p className="text-gray-400 font-bold uppercase tracking-widest text-xs">
+                    Loading Preview...
+                  </p>
+                </div>
+              )}
+            </div>
+          </section>
+
+          {/* Right Side: Analysis Results */}
+          <section className="xl:w-[60%] pb-20">
+            <div
+              className="flex items-center gap-3 mb-6 animate-fade-in"
+              style={{ animationDelay: "0.1s" }}
+            >
+              <div className="w-2 h-8 bg-orange-500 rounded-full"></div>
+              <h2 className="text-2xl font-bold text-gray-900 uppercase tracking-tight">
+                AI Analysis Report
+              </h2>
+            </div>
+
+            {feedback ? (
+              <Suspense
+                fallback={
+                  <div className="flex flex-col items-center justify-center py-40">
+                    <div className="custom-loader mb-8"></div>
+                    <p className="text-gray-400 font-black uppercase tracking-widest text-xs">
+                      Processing analysis...
+                    </p>
+                  </div>
+                }
+              >
+                <div
+                  className="flex flex-col gap-8 animate-fade-in"
+                  style={{ animationDelay: "0.2s" }}
+                >
+                  <Summary feedback={feedback} />
+                  <ATS
+                    score={feedback.ATS.score || 0}
+                    suggestions={feedback.ATS.tips || []}
+                  />
+                  <Details feedback={feedback} />
+                </div>
+              </Suspense>
+            ) : (
+              <div className="bg-white rounded-[3rem] border border-gray-100 p-12 md:p-20 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.08)] text-center animate-fade-in">
+                <div className="w-32 h-32 bg-orange-50 rounded-[2.5rem] flex items-center justify-center mx-auto mb-10 relative">
+                  <div className="absolute inset-0 rounded-[2.5rem] border-4 border-orange-100 border-t-orange-500 animate-spin"></div>
+                  <span className="text-5xl">🤖</span>
+                </div>
+                <h3 className="text-3xl font-black text-gray-900 mb-4">
                   Preparing Your Results
                 </h3>
-                <p className="text-sm lg:text-base text-gray-600 max-w-sm lg:max-w-md">
+                <p className="text-gray-500 text-lg font-medium max-w-md mx-auto mb-8">
                   We're loading your comprehensive resume analysis with detailed
                   insights and recommendations.
                 </p>
+                <div className="custom-loader mx-auto"></div>
               </div>
-
-              <div className="flex items-center space-x-2">
-                <div className="w-2 h-2 bg-orange-500 rounded-full animate-bounce"></div>
-                <div
-                  className="w-2 h-2 bg-orange-500 rounded-full animate-bounce"
-                  style={{ animationDelay: "0.1s" }}
-                ></div>
-                <div
-                  className="w-2 h-2 bg-orange-500 rounded-full animate-bounce"
-                  style={{ animationDelay: "0.2s" }}
-                ></div>
-              </div>
-            </div>
-          )}
-        </section>
+            )}
+          </section>
+        </div>
       </div>
     </main>
   );
