@@ -1,139 +1,157 @@
-# <img src="public/favicon.ico" alt="CVScan Logo" width="28" /> CVScan – AI-Powered Resume Analyzer  
+# <img src="public/favicon.ico" alt="CVScan Logo" width="32" /> CVScan – AI-Powered Resume Intelligence
 
-[![Build](https://img.shields.io/badge/build-passing-brightgreen?style=flat-square)](#)
-[![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
-![React](https://img.shields.io/badge/Frontend-React%20Router%20v7-61DAFB?logo=react&style=flat-square)
-![TypeScript](https://img.shields.io/badge/Language-TypeScript-3178C6?logo=typescript&style=flat-square)
-![TailwindCSS](https://img.shields.io/badge/Style-TailwindCSS-38B2AC?logo=tailwindcss&style=flat-square)
-![Puter](https://img.shields.io/badge/Cloud-Puter%20Platform-7B42BC?style=flat-square)
+![CVScan Banner](https://raw.githubusercontent.com/aviralmehrotra/cvscan/main/public/banner.png)
 
-A **modern web app** that provides **intelligent feedback** on resumes using AI.  
-Built with **React Router** and powered by **Puter’s cloud services**.  
+> **Analyze your resume. Fix gaps. Get shortlisted.** CVScan is a state-of-the-art AI-driven platform designed to help job seekers optimize their resumes for modern Applicant Tracking Systems (ATS) and human recruiters alike.
 
-## 🎥 Preview  
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen?style=for-the-badge)](https://github.com/aviralmehrotra/cvscan)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+[![React Router](https://img.shields.io/badge/React%20Router-v7-CA4245?style=for-the-badge&logo=reactrouter)](https://reactrouter.com/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-v4-06B6D4?style=for-the-badge&logo=tailwindcss)](https://tailwindcss.com/)
+[![Puter](https://img.shields.io/badge/Cloud-Puter-7B42BC?style=for-the-badge)](https://puter.com/)
 
-[🚀 Live Demo – Try CVScan](https://cv-scan-eta.vercel.app/)
+---
 
-## ✨ Features  
+## 🚀 Live Demo
 
-- 🤖 **Smart Resume Analysis** – Upload PDF resumes and get detailed AI-powered feedback  
-- 🏆 **ATS Compatibility Check** – See how well your resume performs with Applicant Tracking Systems  
-- 📊 **Comprehensive Scoring** – Get scores for content, structure, tone & style, and skills  
-- 🎯 **Job-Specific Feedback** – Tailor analysis based on specific job descriptions and companies  
-- 📱 **Responsive Design** – Works across desktop, tablet, and mobile devices  
-- 🔐 **Secure Authentication** – User authentication powered by Puter  
+Experience the power of AI resume analysis: **[Try CVScan Now](https://cv-scan-eta.vercel.app/)**
 
-## 🛠️ Tech Stack  
+---
 
-- **Frontend:** ⚛️ React Router v7 • 📘 TypeScript • 🎨 TailwindCSS  
-- **Backend Services:** ☁️ Puter Cloud Platform  
-- **PDF Processing:** 📄 PDF.js (client-side conversion)  
-- **File Storage:** 🗂️ Puter File System  
-- **AI Analysis:** 🤖 Puter AI services  
-- **Authentication:** 🔑 Puter Auth  
+## ✨ Key Features
 
-## 🚀 Getting Started  
+- 🧠 **Deep AI Analysis** – Leverages advanced LLMs to provide granular feedback on content, structure, and professional tone.
+- 📊 **ATS Compatibility Score** – Understand how well your resume performs against automated screening systems.
+- 🎯 **Job-Specific Tailoring** – Analyze your resume against specific job descriptions to find missing keywords and skills.
+- 📄 **Interactive PDF Preview** – Real-time rendering of your resume with overlaid AI insights.
+- 🔐 **Cloud-Native Auth** – Secure, seamless authentication powered by Puter.js.
+- 📱 **Ultra-Responsive UI** – A premium, dark-themed experience that works beautifully on any device.
 
-### ✅ Prerequisites  
-- Node.js 18+  
-- npm or yarn  
+---
 
-### 📥 Installation  
+## 🛠️ Tech Stack
 
-#### 1. Clone the repository
+### Frontend
+
+- **Framework:** [React Router v7](https://reactrouter.com/) (Full-stack React framework)
+- **Styling:** [Tailwind CSS v4](https://tailwindcss.com/) (Next-gen utility-first CSS)
+- **Icons:** [Lucide React](https://lucide.dev/)
+- **State Management:** [Zustand](https://zustand-demo.pmnd.rs/)
+- **Animations:** [Tailwind Animate](https://github.com/jamiebuilds/tailwindcss-animate)
+
+### Backend & Cloud (Puter.js)
+
+- **Authentication:** Puter Auth
+- **Database/KV:** Puter Key-Value Store
+- **AI Engine:** Puter AI (LLM integration)
+- **Hosting:** Puter Cloud Platform
+
+### Utilities
+
+- **PDF Processing:** [PDF.js](https://mozilla.github.io/pdf.js/)
+- **File Handling:** [React Dropzone](https://react-dropzone.js.org/)
+
+---
+
+## 📂 Project Structure
+
 ```bash
-git clone https://github.com/aviralmehrotra/cvscan.git
-cd cvscan
-```
-
-#### 2. Install dependencies
-```bash
-npm install
-```
-
-#### 3. Start the dev server
-```bash
-npm run dev
-```
-
-Open your browser and go to `http://localhost:5173`🚀
-
-🏗️ Build for Production
-```bash
-npm run build
-```
-
-🔎 How It Works
-
-1. 📤 Upload Resume – Add your PDF resume + job details
-2. 🖼️ PDF Processing – Converted to image for preview
-3. 🧠 AI Analysis – Puter’s AI reviews the content & structure
-4. 📝 Feedback Generation – Get detailed, categorized insights:
-   - ✅ Overall score & ATS compatibility
-   - ✍️ Content quality & relevance
-   - 📑 Structure & formatting
-   - 🎙️ Tone & professional style
-   - 🧩 Skills assessment
-
-## 🗂️ Project Structure
-
-```
 app/
-├── components/          # Reusable UI components
-│   ├── Accordion.tsx    # Collapsible feedback sections
-│   ├── FileUploader.tsx # Drag & drop file upload
-│   ├── ScoreCircle.tsx  # Circular progress indicators
-│   └── ...
-├── routes/              # Application pages
-│   ├── home.tsx         # Dashboard with resume list
-│   ├── upload.tsx       # Resume upload & analysis
-│   ├── resume.tsx       # Detailed feedback view
-│   └── auth.tsx         # Authentication page
-├── lib/                 # Utility functions
-│   ├── puter.ts         # Puter API integration
-│   ├── pdf2img.ts       # PDF conversion utilities
-│   └── utils.ts         # Helper functions
-└── app.css              # Global styles & components
+├── components/          # Premium UI components (Gauges, Cards, Uploaders)
+│   ├── ATS.tsx          # ATS scoring visualization
+│   ├── FileUploader.tsx # Drag & drop with PDF validation
+│   ├── ScoreGauge.tsx   # Animated SVG gauges for metrics
+│   └── LandingPage.tsx  # High-conversion hero sections
+├── routes/              # Application routing & page logic
+│   ├── dashboard.tsx    # User's resume management hub
+│   ├── upload.tsx       # AI analysis pipeline
+│   ├── resume.tsx       # Detailed feedback & preview
+│   └── auth.tsx         # Puter-powered authentication
+├── lib/                 # Core business logic & API wrappers
+│   ├── puter.ts         # Puter.js SDK integration
+│   └── pdf2img.ts       # Client-side PDF to Image conversion
+└── app.css              # Global styles & Tailwind v4 configuration
 ```
 
-## 📊 Key Features Explained
-### 📈 Resume Analysis Categories
+---
 
-- 🏆 ATS Score: Measures automated screening compatibility
-- 🖊️ Content: Relevance, completeness, quality
-- 🏗️ Structure: Formatting, organization, readability
-- 🎙️ Tone & Style: Professional language & flow
-- 🧩 Skills: Technical + soft skills representation
+## 🏁 Getting Started
 
-### 📱 Responsive Design
+### Prerequisites
 
-- 💻 Desktop: Side-by-side layout with full-size components
-- 📱 Mobile: Stacked layout, touch-optimized
-- 📏 Tablet: Balanced spacing & sizing for better usability
+- **Node.js:** 18.x or higher
+- **Package Manager:** npm, pnpm, or yarn
+
+### Installation
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/aviralmehrotra/cvscan.git
+   cd cvscan
+   ```
+
+2. **Install dependencies:**
+
+   ```bash
+   npm install
+   ```
+
+3. **Run the development server:**
+
+   ```bash
+   npm run dev
+   ```
+
+   The app will be available at `http://localhost:5173`.
+
+4. **Build for production:**
+   ```bash
+   npm run build
+   ```
+
+---
+
+## 🔍 How It Works
+
+1. **Upload:** Drop your PDF resume into the secure uploader.
+2. **Context:** (Optional) Provide a job description for targeted analysis.
+3. **Process:** PDF.js converts your resume for client-side preview while Puter AI analyzes the text content.
+4. **Insights:** Receive a comprehensive breakdown across 5 key dimensions:
+   - **ATS Score:** Technical compatibility.
+   - **Content:** Information density and relevance.
+   - **Structure:** Layout and readability.
+   - **Tone:** Professionalism and impact.
+   - **Skills:** Keyword matching and skill gaps.
+
+---
 
 ## 🤝 Contributing
 
-1. Fork the repository
-2. Create a feature branch `git checkout -b feature/amazing-feature`
-3. Commit changes `git commit -m "Add amazing feature"`
-4. Push to the branch `git push origin feature/amazing-feature`
-5. Open a Pull Request 🔥
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-## ⚙️ Environment Setup
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-#### Make sure you have:
-
-- ✅ A Puter account (for authentication)
-- 🌐 Proper CORS settings for your domain
-- 📄 PDF.js worker files in your public directory
+---
 
 ## 📜 License
-Licensed under the MIT License – see ![LICENSe](LISENSE) for details.
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+---
 
 ## 🙌 Acknowledgments
 
-- ⚛️ Built with React Router
-- ☁️ Powered by Puter’s Cloud Platform
-- 📄 PDF processing with PDF.js
-- 🎨 UI styled with TailwindCSS
+- [Puter.js](https://puter.com/) for the incredible cloud infrastructure.
+- [React Router](https://reactrouter.com/) for the seamless routing experience.
+- [Tailwind CSS](https://tailwindcss.com/) for making styling a breeze.
 
+---
+
+<p align="center">
+  Built with ❤️ by <a href="https://github.com/aviralmehrotra">Aviral Mehrotra</a>
+</p>
