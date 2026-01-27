@@ -1,6 +1,6 @@
 # <img src="public/favicon.ico" alt="CVScan Logo" width="32" /> CVScan – AI-Powered Resume Intelligence
 
-![CVScan Banner](https://raw.githubusercontent.com/aviralmehrotra/cvscan/main/public/banner.png)
+![CVScan Banner](https://raw.githubusercontent.com/AviralMehrotra/CVScan/refs/heads/master/public/banner.png)
 
 > **Analyze your resume. Fix gaps. Get shortlisted.** CVScan is a state-of-the-art AI-driven platform designed to help job seekers optimize their resumes for modern Applicant Tracking Systems (ATS) and human recruiters alike.
 
