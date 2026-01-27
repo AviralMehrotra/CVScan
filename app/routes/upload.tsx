@@ -11,6 +11,13 @@ import { generateUUID } from "~/lib/utls";
 const Upload = () => {
   const { auth, isLoading, fs, ai, kv } = usePuterStore();
   const navigate = useNavigate();
+
+  React.useEffect(() => {
+    if (!isLoading && !auth.isAuthenticated) {
+      navigate("/auth?next=/upload");
+    }
+  }, [isLoading, auth.isAuthenticated, navigate]);
+
   const [isProcessing, setIsProcessing] = useState(false);
   const [statusText, setStatusText] = useState("");
   const [file, setFile] = useState<File | null>(null);
@@ -61,7 +68,7 @@ const Upload = () => {
         jobDescription,
         feedback: "",
       };
-      await kv.set(`resume${uuid}`, JSON.stringify(data));
+      await kv.set(`resume:${uuid}`, JSON.stringify(data));
 
       setStatusText("Analyzing Resume...");
 

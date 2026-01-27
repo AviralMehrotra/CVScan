@@ -10,12 +10,13 @@ export const meta = () => [
 const auth = () => {
   const { isLoading, auth } = usePuterStore();
   const location = useLocation();
-  const next = location.search.split("next=")[1];
   const navigate = useNavigate();
+  const searchParams = new URLSearchParams(location.search);
+  const next = searchParams.get("next") || "/dashboard";
 
   useEffect(() => {
     if (auth.isAuthenticated) navigate(next);
-  }, [auth.isAuthenticated, next]);
+  }, [auth.isAuthenticated, next, navigate]);
 
   return (
     <main className="bg-[url('/images/bg-auth.svg')] bg-cover min-h-screen flex flex-col">
@@ -43,7 +44,9 @@ const auth = () => {
                     />
                   </svg>
                 </div>
-                <h1 className="font-semibold">Welcome Back!</h1>
+                <h1 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl">
+                  Welcome Back!
+                </h1>
                 <h2 className="text-gray-600">
                   Sign in to analyze your resume with our AI
                 </h2>

@@ -30,7 +30,7 @@ const Navbar = () => {
           <span className="max-sm:hidden ">Upload Resume</span>
           <span className="sm:hidden">Upload</span>
         </Link>
-        {auth.isAuthenticated && (
+        {auth.isAuthenticated ? (
           <button
             className="sm:py-2 sm:px-4 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-full font-semibold transition-all duration-200 text-xs sm:text-sm"
             onClick={auth.signOut}
@@ -38,6 +38,13 @@ const Navbar = () => {
             <span className="max-sm:hidden">Log Out</span>
             <span className="sm:hidden">Logout</span>
           </button>
+        ) : (
+          <Link
+            to="/auth"
+            className="sm:py-2 sm:px-4 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-full font-semibold transition-all duration-200 text-xs sm:text-sm"
+          >
+            Log In
+          </Link>
         )}
       </div>
     </nav>

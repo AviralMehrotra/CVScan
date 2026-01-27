@@ -1,7 +1,10 @@
 import { Link } from "react-router";
 import Footer from "./Footer";
+import { usePuterStore } from "~/lib/puter";
 
 const LandingPage = () => {
+  const { auth } = usePuterStore();
+
   return (
     <div className="min-h-screen relative overflow-hidden">
       {/* Decorative Background Elements */}
@@ -47,9 +50,21 @@ const LandingPage = () => {
           >
             Upload Resume
           </Link>
-          <button className="px-8 py-3 bg-white hover:bg-gray-50 text-gray-900 border border-gray-200 rounded-full text-lg font-semibold transition-all hover:shadow-md hover:scale-105 active:scale-95">
-            See Sample Analysis
-          </button>
+          {auth.isAuthenticated ? (
+            <Link
+              to="/dashboard"
+              className="px-8 py-3 bg-white hover:bg-gray-50 text-gray-900 border border-gray-200 rounded-full text-lg font-semibold transition-all hover:shadow-md hover:scale-105 active:scale-95 flex items-center justify-center"
+            >
+              Go to Dashboard
+            </Link>
+          ) : (
+            <Link
+              to="/auth"
+              className="px-8 py-3 bg-white hover:bg-gray-50 text-gray-900 border border-gray-200 rounded-full text-lg font-semibold transition-all hover:shadow-md hover:scale-105 active:scale-95 flex items-center justify-center"
+            >
+              Log In / Sign Up
+            </Link>
+          )}
         </div>
 
         {/* Mock Resume Visual */}
