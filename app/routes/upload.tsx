@@ -46,7 +46,8 @@ const Upload = () => {
 
       setStatusText("Converting PDF to Image...");
       const imageFile = await convertPdfToImage(file);
-      if (!imageFile.file) throw new Error("Failed to convert PDF to Image");
+      if (!imageFile.file)
+        throw new Error(imageFile.error || "Failed to convert PDF to Image");
 
       setStatusText("Extracting text from PDF...");
       const textExtraction = await extractTextFromPdf(file);
